@@ -1,0 +1,14 @@
+def diagonal(Row, Col):
+    matrix = [[0]*Col for i in range(Row)]
+    value=1
+    for line in range(1,(Row + Col)):
+        start_col=max(0,line-Row)
+        count=min(line,(Col-start_col),Row)
+
+        for j in range(0,count):
+            matrix[min(Row,line)-j-1][start_col+j]=value
+            value += 1
+    return matrix
+matrix=diagonal(3,4)
+for row in matrix:
+    print(row)
